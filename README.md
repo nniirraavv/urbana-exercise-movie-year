@@ -55,13 +55,6 @@ npm run build
 * **`build`** : All production build artifacts
 * **`src `** : All source code files
     * **`api`** : All available API
-        ## API summary ##
-        * **`movies`** : Return the list of the movies
-        * **`movie`** : Return the search movie details. Search movie using movie title
-        * **`play`** : Returns the list of random movies with options
-        * **`createMatch`** : Get the user information and store in the datbase then start the game.
-        * **`submitPlay`** : Store the user game details and score
--------------------------------
         * **`graphQL`** : Holds the Input variable types & response types for GraphQL Queries
 	* **`config`** : Application configuration
 	* **`data`** : Holds the movies data and query
@@ -69,3 +62,12 @@ npm run build
 	
 	* **`docker-compose.yml`** : Docker configuraion for Postgres database and Redis
 
+ ## API summary ##
+ 				## Query ##
+        * **`movies`** : Return the list of the movies
+        * **`movie`** : Return the search movie details. Search movie using movie title
+        * **`play`** : Returns the list of random movies with options
+				
+				## Mutation ##
+        * **`createMatch`** : Get the user information and store in the datbase then start the game.
+        * **`submitPlay`** : Store the user game details and score
