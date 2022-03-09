@@ -1,0 +1,31 @@
+version: "3.7"
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+
+  postgres:
+    image: "postgres:10.6-alpine"
+    restart: always 
+    ports:
+      - "5433:5432"
+    expose:
+      - '5433'
+    volumes:
+      - ${POSTGRES_PATH}:/var/lib/postgresql/data
+      - ./scripts/postgres:/docker-entrypoint-initdb.d
+
+  redis:
+    image: bitnami/redis:4.0.11
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    volumes:
+      - ${REDIS_PATH}:/bitnami/redis/data
+    ports:
+      - "6379:6379"
+    networks:
+      - app-tier
